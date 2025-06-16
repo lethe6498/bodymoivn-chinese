@@ -1,4 +1,4 @@
-var gulp = require('gulp'); 
+var gulp = require('gulp');
 var watch = require('gulp-watch');
 var htmlreplace = require('gulp-html-replace');
 var eventstream = require("event-stream");
@@ -11,67 +11,67 @@ var insert = require('gulp-insert');
 var version = '5.12.0'
 
 var extensionSource = './bundle';
-var extensionDestination = '../../../tropi/AppData/Roaming/Adobe/CEP/extensions/bodymovin';
-gulp.task('watch-extension', function() {
-    gulp.src(extensionSource + '/**/*', {base: extensionSource})
-        .pipe(watch(extensionSource, {base: extensionSource}))
+var extensionDestination = '/Library/Application Support/Adobe/CEP/extensions/bodymovin';
+gulp.task('watch-extension', function () {
+    gulp.src(extensionSource + '/**/*', { base: extensionSource })
+        .pipe(watch(extensionSource, { base: extensionSource }))
         .pipe(gulp.dest(extensionDestination));
 });
-gulp.task('copy-extension', function() {
-    gulp.src(extensionSource+'/**/*')
+gulp.task('copy-extension', function () {
+    gulp.src(extensionSource + '/**/*')
         .pipe(gulp.dest(extensionDestination));
 });
 
 
-gulp.task('copy-all', function() {
-    return gulp.src(extensionSource+'/**/*')
+gulp.task('copy-all', function () {
+    return gulp.src(extensionSource + '/**/*')
         .pipe(gulp.dest('./build'));
 });
-gulp.task('create-bm', function() {
+gulp.task('create-bm', function () {
     return gulp.src('player/lottie.min.js')
         .pipe(rename('lottie.js'))
         .pipe(gulp.dest('build/assets/player'));
 });
-gulp.task('create-bm-extension-player', function() {
+gulp.task('create-bm-extension-player', function () {
     return gulp.src('player/lottie.js')
         .pipe(rename('lottie.js'))
         .pipe(insert.prepend('/* eslint-disable */var define = define || null;'))
         .pipe(gulp.dest('./src/'));
 });
-gulp.task('create-standalone', function() {
+gulp.task('create-standalone', function () {
     return gulp.src('player/lottie.min.js')
         .pipe(rename('standalone.js'))
         .pipe(gulp.dest('build/assets/player'));
 });
-gulp.task('create-gzip', function() {
+gulp.task('create-gzip', function () {
     return gulp.src('player/lottie.min.js')
         .pipe(rename('lottie.js'))
         .pipe(gzip({ append: true }))
         .pipe(gulp.dest('build/assets/player'));
 });
 
-gulp.task('copy-manifest', function() {
+gulp.task('copy-manifest', function () {
     return gulp.src('bundle/CSXS/manifest.xml')
-        .pipe(replace(/(<Extension Id="com\.bodymovin\.bodymovin" Version=")(.+)(" \/>)/g,'$1'+version+'$3'))
-        .pipe(replace(/(<ExtensionManifest Version="5\.0" ExtensionBundleId="com\.bodymovin\.bodymovin" ExtensionBundleVersion=")(.+)(")/g,'$1'+version+'$3'))
-        .pipe(replace(/(<MainPath>\.\/)(index_dev.html)(<\/MainPath>)/g,'$1'+'index.html'+'$3'))
+        .pipe(replace(/(<Extension Id="com\.bodymovin\.bodymovin" Version=")(.+)(" \/>)/g, '$1' + version + '$3'))
+        .pipe(replace(/(<ExtensionManifest Version="5\.0" ExtensionBundleId="com\.bodymovin\.bodymovin" ExtensionBundleVersion=")(.+)(")/g, '$1' + version + '$3'))
+        .pipe(replace(/(<MainPath>\.\/)(index_dev.html)(<\/MainPath>)/g, '$1' + 'index.html' + '$3'))
         .pipe(gulp.dest('build/CSXS/'));
 });
 
-gulp.task('copy-debug', function() {
+gulp.task('copy-debug', function () {
     return gulp.src('bundle/.debug')
         .pipe(gulp.dest('build/'));
 });
 
-gulp.task('copy-versionHelper', function() {
+gulp.task('copy-versionHelper', function () {
     return gulp.src('bundle/jsx/helpers/versionHelper.jsx')
         //.pipe(replace(/(v : ')(.+)(',)/g,'$1'+version+'$3'))
-        .pipe(replace(/(version_number = ')(.+)(';)/g,'$1'+version+'$3'))
+        .pipe(replace(/(version_number = ')(.+)(';)/g, '$1' + version + '$3'))
         .pipe(gulp.dest('build/jsx/helpers/'));
 });
 
 var demoBuiltData = '';
-gulp.task('build-demo-data', function() {
+gulp.task('build-demo-data', function () {
 
     function saveToVar() {
         // you're going to receive Vinyl files as chunks
@@ -88,11 +88,11 @@ gulp.task('build-demo-data', function() {
         .pipe(saveToVar());
 });
 
-gulp.task('replace-demo-data', gulp.series('build-demo-data', function() {
+gulp.task('replace-demo-data', gulp.series('build-demo-data', function () {
     //htmlreplace;
     return gulp.src('bundle/assets/player/demo.html')
         .pipe(htmlreplace({
-            scripto:{
+            scripto: {
                 src: demoBuiltData,
                 tpl: '<!-- build:scripto --><script>%s</script><!-- endbuild -->'
             }
@@ -100,4 +100,4 @@ gulp.task('replace-demo-data', gulp.series('build-demo-data', function() {
         .pipe(gulp.dest('build/assets/player/'));
 }));
 
-gulp.task('copy-extension-bundle', gulp.series('copy-all', 'build-demo-data', 'replace-demo-data', 'create-bm', 'create-standalone', 'create-gzip', 'copy-manifest', 'copy-versionHelper','copy-debug'))
+gulp.task('copy-extension-bundle', gulp.series('copy-all', 'build-demo-data', 'replace-demo-data', 'create-bm', 'create-standalone', 'create-gzip', 'copy-manifest', 'copy-versionHelper', 'copy-debug'))
