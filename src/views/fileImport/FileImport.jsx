@@ -263,7 +263,7 @@ class FileImport extends React.Component {
     return (
       <div>
         <div className={css(styles.idle_message)}>
-        要导入乐透动画，请选择上面两个选项之一。（To import a lottie animation choose one of the two options above.）
+        要导入lottie动画，请选择上面两个选项之一。（To import a lottie animation choose one of the two options above.）
         </div>
         <div className={css(styles.idle_note)}>
           Hi! this is a first version of the Lottie importer.（你好！这是Lottie导入器的第一个版本。）<br/>
