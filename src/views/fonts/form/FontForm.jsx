@@ -75,13 +75,13 @@ let FontForm = function(props) {
 						<BodymovinCheckbox animationData={anim} animate={props.data.origin === 0} autoplay={false} loop={false} >
 				          <button className={css(styles['originSelect--radio'])}></button>
 				        </BodymovinCheckbox>
-				        <div  className={css(styles['originSelect--label'])}>None</div>
+				        <div  className={css(styles['originSelect--label'])}>无（None）</div>
 					</li>
 					<li className={css(styles.originSelect)} onClick={()=>props.changeOrigin(1, props.data)}>
 						<BodymovinCheckbox animationData={anim} animate={props.data.origin === 1} autoplay={false} loop={false} >
 				          <button className={css(styles['originSelect--radio'])}></button>
 				        </BodymovinCheckbox>
-				        <div  className={css(styles['originSelect--label'])}>Google Font</div>
+				        <div  className={css(styles['originSelect--label'])}>谷歌字体（Google Font）</div>
 					</li>
 					<li className={css(styles.originSelect)} onClick={()=>props.changeOrigin(2, props.data)}>
 						<BodymovinCheckbox animationData={anim} animate={props.data.origin === 2} autoplay={false} loop={false} >
@@ -97,7 +97,7 @@ let FontForm = function(props) {
 					</li>
 				</ul>
 				<div className={css(styles.inputBlock)}>
-					<div className={css(styles.inputLabel)}>CSS Class</div>
+					<div className={css(styles.inputLabel)}>CSS 类（CSS Class）</div>
 					<input 
 						className={css(styles.inputBox)} 
 						type="text" 
@@ -105,7 +105,7 @@ let FontForm = function(props) {
 						value={props.data.fClass}/>
 				</div>
 				<div className={css(styles.inputBlock)}>
-					<div className={css(styles.inputLabel)}>Font Path</div>
+					<div className={css(styles.inputLabel)}>字体路径（Font Path）</div>
 					<input 
 						className={css(styles.inputBox)} 
 						type="text" 
@@ -113,7 +113,7 @@ let FontForm = function(props) {
 						value={props.data.fPath}/>
 				</div>
 				<div className={css(styles.inputBlock)}>
-					<div className={css(styles.inputLabel)}>Font Family</div>
+					<div className={css(styles.inputLabel)}>字体族（Font Family）</div>
 					<input 
 						className={css(styles.inputBox)} 
 						type="text" 
@@ -121,7 +121,7 @@ let FontForm = function(props) {
 						value={props.data.fFamily}/>
 				</div>
 				<div className={css(styles.inputBlock, styles.halfBlock)}>
-					<div className={css(styles.inputLabel)}>Font Weight</div>
+					<div className={css(styles.inputLabel)}>字体粗细（Font Weight）</div>
 					<input 
 						className={css(styles.inputBox)} 
 						type="text" 
@@ -129,7 +129,7 @@ let FontForm = function(props) {
 						value={props.data.fWeight}/>
 				</div>
 				<div className={css(styles.inputBlock, styles.halfBlock)}>
-					<div className={css(styles.inputLabel)}>Font Style</div>
+					<div className={css(styles.inputLabel)}>字体样式（Font Style）</div>
 					<input 
 						className={css(styles.inputBox)} 
 						type="text" 

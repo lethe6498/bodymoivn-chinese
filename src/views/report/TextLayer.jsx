@@ -31,7 +31,7 @@ class TextLayer extends React.Component {
     const messageCount = getTextMessagesCount(this.props.text, this.props.renderers, this.props.messageTypes, this.props.builders)
     return (
       <RowContainer
-        name={'Text Properties'}
+        name={'文本属性（Text Properties）'}
         content={this.buildContent}
         messageCount={messageCount}
         shouldAutoExpand={this.props.shouldAutoExpand}

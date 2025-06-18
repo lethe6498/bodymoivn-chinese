@@ -138,31 +138,31 @@ class Settings extends React.Component {
         <div className={css(styles.container)}>
           <ul className={css(styles.compsList)}>
             <SettingsListItem 
-              title='Split'
-              description='Splits comp in multiple files every X seconds'
+              title='分割（Split）'
+              description='每 X 秒将合成分割成多个文件（Splits comp in multiple files every X seconds）'
               toggleItem={this.toggleSegmented}
               active={this.props.settings ? this.props.settings.segmented : false} 
               needsInput={true} 
               inputValue={this.props.settings ? this.props.settings.segmentedTime : 0} 
               inputValueChange={this.segmentedChange} />
             <SettingsListItem 
-              title='Glyphs'
-              description='Checked converts fonts to shapes'
+              title='字形（Glyphs）'
+              description='勾选后将字体转换为形状（Checked converts fonts to shapes）'
               toggleItem={this.toggleGlyphs}
               active={this.props.settings ? this.props.settings.glyphs : false} />
             <SettingsListItem 
-              title='Hidden'
-              description='Check if you need HIDDEN layers to be exported'
+              title='隐藏（Hidden）'
+              description='如果需要导出隐藏图层，请勾选（Check if you need HIDDEN layers to be exported）'
               toggleItem={this.toggleHiddens}
               active={this.props.settings ? this.props.settings.hiddens : false}  />
             <SettingsListItem 
-              title='Guides'
-              description='Check if you need GUIDED layers to be exported'
+              title='参考线（Guides）'
+              description='如果需要导出参考线图层，请勾选（Check if you need GUIDED layers to be exported）'
               toggleItem={this.toggleGuideds}
               active={this.props.settings ? this.props.settings.guideds : false}  />
             <SettingsListItem 
-              title='Extra Comps'
-              description='Check if expressions are pointing to external comps'
+              title='额外合成（Extra Comps）'
+              description='检查表达式是否指向外部合成（Check if expressions are pointing to external comps）'
               toggleItem={this.toggleExtraComps}
               active={this.props.settings ? this.props.settings.extraComps.active : false}  />
               {this.props.settings && this.props.settings.extraComps.active && 
@@ -170,19 +170,19 @@ class Settings extends React.Component {
               {this.getExtraComps()}
             </li>}
             <SettingsListItem 
-              title='Standalone'
-              description='Exports animation and player bundled in a single file'
+              title='独立（Standalone）'
+              description='将动画和播放器打包到单个文件中导出（Exports animation and player bundled in a single file）'
               toggleItem={this.toggleStandalone}
               active={this.props.settings ? this.props.settings.standalone : false}  />
             <SettingsListItem 
-              title='Demo'
-              description='Exports an html for local preview'
+              title='演示（Demo）'
+              description='导出用于本地预览的 HTML（Exports an html for local preview）'
               toggleItem={this.toggleDemo}
               active={this.props.settings ? this.props.settings.demo : false}  />
           </ul>
           <div className={css(styles.bottomNavigation)}>
-            <BaseButton text='Cancel' type='green' onClick={this.cancelSettings}></BaseButton>
-            <BaseButton text='Save' type='gray' onClick={this.saveSettings}></BaseButton>
+            <BaseButton text='取消（Cancel）' type='green' onClick={this.cancelSettings}></BaseButton>
+            <BaseButton text='保存（Save）' type='gray' onClick={this.saveSettings}></BaseButton>
           </div>
         </div>
     	</div>

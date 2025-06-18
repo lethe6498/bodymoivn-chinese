@@ -10,23 +10,23 @@ class StrokeStyle extends React.Component {
   styleProperties = [
     {
       key: 'color',
-      name: 'Color',
+      name: '颜色（Color）',
     },
     {
       key: 'opacity',
-      name: 'Opacity',
+      name: '不透明度（Opacity）',
     },
     {
       key: 'size',
-      name: 'Size',
+      name: '大小（Size）',
     },
     {
       key: 'blendMode',
-      name: 'Blend Mode',
+      name: '混合模式（Blend Mode）',
     },
     {
       key: 'position',
-      name: 'Position',
+      name: '位置（Position）',
     },
   ]
 
@@ -46,7 +46,7 @@ class StrokeStyle extends React.Component {
 
   buildMessages = shouldAutoExpand => (
     <Property
-      name={'Style Messages'}
+      name={'样式消息（Style Messages）'}
       key={'styles'}
       messages={this.props.style.messages}
       renderers={this.props.renderers}

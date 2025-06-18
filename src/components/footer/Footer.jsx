@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 class Footer extends React.PureComponent {
 
 	render() {
-      return (<div className={css(styles.wrapper)}>{'Version: ' + this.props.version}
+      return (<div className={css(styles.wrapper)}>{'版本：' + this.props.version + '（Version: ' + this.props.version + '）'}
       </div>)
 	}
 }

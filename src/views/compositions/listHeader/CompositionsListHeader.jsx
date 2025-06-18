@@ -83,12 +83,12 @@ class CompositionsListHeader extends React.Component {
   render() {
     return (
     	<ul className={css(styles.container)}>
-        <li className={css(styles.item, styles.radio, textEllipsis)}>Selected</li>
-        <li className={css(styles.item, styles.settings, textEllipsis)}>Settings</li>
-        <li className={css(styles.item, styles.settings, textEllipsis)}>Report</li>
+        <li className={css(styles.item, styles.radio, textEllipsis)}>已选择</li>
+        <li className={css(styles.item, styles.settings, textEllipsis)}>设置</li>
+        <li className={css(styles.item, styles.settings, textEllipsis)}>报告</li>
         <li className={css(styles.item, styles.name, textEllipsis)}>
           <div className={css(styles.nameBox)}>
-            <input className={css(styles.name_input)} type="text" placeholder="Name" onChange={this.props.filterChange} value={this.props.filterValue} />
+            <input className={css(styles.name_input)} type="text" placeholder="名称（Name）" onChange={this.props.filterChange} value={this.props.filterValue} />
             <div className={css(styles.name_glass)}>
             </div>
           </div>
@@ -96,7 +96,7 @@ class CompositionsListHeader extends React.Component {
     		<li 
           className={css(styles.item, styles.destination, textEllipsis)}
         >
-          <div>../Destination Folder</div>
+          <div>../目标文件夹（Destination Folder）</div>
         </li>
     	</ul>
     	);

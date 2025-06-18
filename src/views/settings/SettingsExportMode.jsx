@@ -41,7 +41,7 @@ class SettingsExportMode extends React.PureComponent {
 		return (
       <div className={css(styles.wrapper)}>
         <div className={css(styles.wrapperContainer)}>
-          <div className={css(styles.title)}>Export Modes</div>
+          <div className={css(styles.title)}>导出模式（Export Modes）</div>
           <div className={css(styles.modes)}>
             <div className={css(styles.modeItem)}>
               <SettingsStandard />

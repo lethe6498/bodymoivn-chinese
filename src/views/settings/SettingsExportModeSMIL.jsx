@@ -34,9 +34,8 @@ class SettingsExportModeSMIL extends React.PureComponent {
       <div className={css(styles.wrapper, this.props._isActive && styles.wrapperActive)}>
         <ul>
           <SettingsListItem 
-            title='SMIL (svg)'
-            description={`Exports an svg file that uses SMIL for animations.
-            This is experimental and not everything will work.`}
+            title='SMIL'
+            description='导出为SMIL格式（Exports as SMIL format）'
             toggleItem={this.handleModeToggle}
             active={this.props._isActive} />
         </ul>

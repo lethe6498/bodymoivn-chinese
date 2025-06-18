@@ -72,13 +72,13 @@ class GlobalSettings extends React.Component {
         <div className={css(styles.modal)}>
           <div className={css(styles.header)}>
             <BaseButton
-                text='Load Settings'
+                text='加载设置（Load Settings）'
                 type='gray'
                 classes={styles.button}
                 onClick={this.props.onSettingsLoad}
             />
             <BaseButton
-                text='Close'
+                text='关闭（Close）'
                 type='gray'
                 classes={styles.button}
                 onClick={this.props.onClose}
@@ -87,26 +87,26 @@ class GlobalSettings extends React.Component {
           <div className={css(styles.content)}>
             <ul className={css(styles.settingsList)}>
               <SettingsListItem 
-                title='Use comp name'
-                description='Default to composition name for file export'
+                title='使用合成名称（Use comp name）'
+                description='默认使用合成名称作为文件导出名称（Default to composition name for file export）'
                 toggleItem={this.props.onCompNameAsDefaultToggle}
                 active={this.props.shouldUseCompNameAsDefault}
               />
               {<SettingsListItem 
-                title='include comp name as folder'
-                description='includes composition name in the saving path'
+                title='将合成名称作为文件夹（include comp name as folder）'
+                description='在保存路径中包含合成名称（includes composition name in the saving path）'
                 toggleItem={this.props.onIncludeCompNameAsFolderToggle}
                 active={this.props.shouldIncludeCompNameAsFolder}
               />}
               <SettingsListItem 
-                title='Use AE location'
-                description='defaults to AE location as destination folder'
+                title='使用 AE 位置（Use AE location）'
+                description='默认使用 AE 位置作为目标文件夹（defaults to AE location as destination folder）'
                 toggleItem={this.props.onAEAsPathToggle}
                 active={this.props.shouldUseAEPathAsDestinationFolder}
               />
               {!this.props.shouldUseAEPathAsDestinationFolder && <SettingsListItem 
-                  title='Use custom saving location'
-                  description='defaults saving folder to selected location'
+                  title='使用自定义保存位置（Use custom saving location）'
+                  description='默认保存到选定位置（defaults saving folder to selected location）'
                   toggleItem={this.props.onDefaultPathAsFolder}
                   active={this.props.shouldUsePathAsDefaultFolder}
                 />
@@ -114,41 +114,41 @@ class GlobalSettings extends React.Component {
               {!this.props.shouldUseAEPathAsDestinationFolder &&
                 this.props.shouldUsePathAsDefaultFolder &&
                 <SettingsListFile
-                  title='Set Location of default folder'
-                  description='Set the folder path'
+                  title='设置默认文件夹位置（Set Location of default folder）'
+                  description='设置文件夹路径（Set the folder path）'
                   value={this.props.defaultFolderPath}
                   onChange={this.props.onDefaultPathChange}
                 />
               }
               <SettingsListItem 
-                title='Keep live copy of settings'
-                description='In case AE updates and settings are lost'
+                title='保持设置的实时副本（Keep live copy of settings）'
+                description='以防 AE 更新导致设置丢失（In case AE updates and settings are lost）'
                 toggleItem={this.props.onCopySettingsToggle}
                 active={this.props.shouldKeepCopyOfSettings}
               />
               {this.props.shouldKeepCopyOfSettings &&
                 <SettingsListFile
-                  title='Set Location of live settings'
-                  description='Set the folder path'
+                  title='设置实时设置的位置（Set Location of live settings）'
+                  description='设置文件夹路径（Set the folder path）'
                   value={this.props.settingsDestinationCopy}
                   onChange={this.props.onSettingsCopyChange}
                 />
               }
               <SettingsListItem 
-                title='Save settings in AE file'
-                description='Saves settings within the aep project file. This allows to use the same project in multiple devices and versions of AE.'
+                title='在 AE 文件中保存设置（Save settings in AE file）'
+                description='在 aep 项目文件中保存设置。这允许在多个设备和 AE 版本中使用相同的项目（Saves settings within the aep project file. This allows to use the same project in multiple devices and versions of AE）'
                 toggleItem={this.props.onSaveInProjectFile}
                 active={this.props.shouldSaveInProjectFile}
               />
               <SettingsListItem 
-                title='Skip Done view'
-                description='Go back to composition list when render is done'
+                title='跳过完成视图（Skip Done view）'
+                description='渲染完成后返回合成列表（Go back to composition list when render is done）'
                 toggleItem={this.props.onSkipDoneViewToggle}
                 active={this.props.shouldSkipDoneView}
               />
               <SettingsListItem 
-                title='Reuse font data'
-                description='If available, reuse font data'
+                title='重用字体数据（Reuse font data）'
+                description='如果可用，重用字体数据（If available, reuse font data）'
                 toggleItem={this.props.onReuseFontDataToggle}
                 active={this.props.shouldReuseFontData}
               />

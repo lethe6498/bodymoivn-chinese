@@ -26,7 +26,7 @@ class BevelEmbossStyle extends React.Component {
 
   buildMessages = shouldAutoExpand => (
     <Property
-      name={'Style Messages'}
+      name={'样式消息（Style Messages）'}
       key={'styles'}
       messages={this.props.style.messages}
       renderers={this.props.renderers}

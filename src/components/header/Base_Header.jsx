@@ -58,49 +58,49 @@ function BaseHeader(props) {
 	return (<div className={css(styles.container)}>
 				<div className={css(styles.buttons_container)}>
                     <BaseLink
-                        text='Compositions'
+                        text='合成（Compositions）'
                         type='gray'
                         classes={styles.right}
                         onClick={props.goToComps}
                         selected={props.currentRoute === routes.compositions}
                     />
 					<BaseLink
-                        text='Preview'
+                        text='预览（Preview）'
                         type='gray'
                         classes={styles.button}
                         onClick={props.goToPreview}
                         selected={props.currentRoute === routes.preview}
                     />
                     <BaseLink
-                        text='Import Lottie Animation'
+                        text='导入 Lottie 动画（Import Lottie Animation）'
                         type='gray'
                         classes={styles.right}
                         onClick={props.goToImportFile}
                         selected={props.currentRoute === routes.importFile}
                     />
                     <BaseLink
-                        text='Reports'
+                        text='报告（Reports）'
                         type='gray'
                         classes={styles.right}
                         onClick={() => props.goToReports()}
                         selected={props.currentRoute === routes.reports}
                     />
                     <BaseLink
-                        text='Get the Player'
+                        text='获取播放器（Get the Player）'
                         type='gray'
                         classes={styles.right}
                         onClick={props.goToPlayer}
                         selected={props.currentRoute === routes.player}
                     />
                     <BaseLink
-                        text='Supported Features'
+                        text='支持的功能（Supported Features）'
                         type='gray'
                         classes={styles.right}
                         onClick={props.goToSupportedFeatures}
                         selected={props.currentRoute === routes.supported_features}
                     />
                     <BaseLink
-                        text='Annotations'
+                        text='注释（Annotations）'
                         type='gray'
                         classes={styles.right}
                         onClick={props.goToAnnotations}

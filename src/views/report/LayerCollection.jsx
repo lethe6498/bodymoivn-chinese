@@ -31,7 +31,7 @@ class LayerCollection extends React.Component {
     const messageCount = getLayerCollectionMessagesCount(this.props.layers, this.props.renderers, this.props.messageTypes, this.props.builders)
     return (
       <RowContainer
-        name={'Composition Layers'}
+        name={'合成图层（Composition Layers）'}
         content={this.buildContent}
         messageCount={messageCount}
         shouldAutoExpand={this.props.shouldAutoExpand}

@@ -23,7 +23,7 @@ class Alerts extends React.Component {
 					buttons={
 						[
 							{
-								text: 'OK',
+								text: '确定（OK）',
 								type: 'green',
 								action: this.props.hideAlert,
 							}

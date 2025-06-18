@@ -27,12 +27,12 @@ class ReportsHeader extends React.Component {
         <BaseHeader/>
         <div className={css(styles.buttons_container)}>
             <BaseButton
-              text='Settings'
+              text='设置（Settings）'
               type='green'
               classes={styles.button}
               onClick={this.props.onSettingsSelected} />
             <BaseButton
-              text='Import Report'
+              text='导入报告（Import Report）'
               type='green'
               classes={styles.button}
               onClick={this.props.onImportSelected} />

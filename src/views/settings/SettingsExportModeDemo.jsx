@@ -44,7 +44,7 @@ class SettingsExportModeStandard extends React.PureComponent {
         <ul>
           <SettingsListItem 
             title='Demo'
-            description='Exports an html for local preview'
+            description='导出html用于本地预览（Exports an html for local preview）'
             toggleItem={this.handleModeToggle}
             active={this.props._isActive} />
         </ul>
@@ -56,8 +56,8 @@ class SettingsExportModeStandard extends React.PureComponent {
                         >*/}
               <ul className={css(styles.compsList)}>
                 <SettingsListColor 
-                  title='Background Color'
-                  description='Set the background color'
+                  title='背景颜色（Background Color）'
+                  description='设置背景颜色（Set the background color）'
                   inputValue={this.props.backgroundColor || '#fff'} 
                   inputValueChange={this.colorChange} />
               </ul>

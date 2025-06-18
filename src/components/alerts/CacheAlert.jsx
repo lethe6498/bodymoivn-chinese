@@ -9,20 +9,20 @@ class CacheAlerts extends React.Component {
 		return (<BaseAlert
       buttons={[
         {
-          text: 'Confirm',
+          text: '确认（Confirm）',
           action: this.props.clearCacheConfirmed,
           type: 'green',
         },
         {
-          text: 'Cancel',
+          text: '取消（Cancel）',
           action: this.props.clearCacheCancelled,
           type: 'gray',
         },
       ]}
       pars={[
-        'Are you sure you want to clear the caché?',
-        'You will lose the settings for all projects.',
-        'Use this only if something is not working correctly.',
+        '您确定要清除缓存吗？（Are you sure you want to clear the caché?）',
+        '您将丢失所有项目的设置（You will lose the settings for all projects）',
+        '仅在出现问题时使用此功能（Use this only if something is not working correctly）',
       ]}
     />)
 	}

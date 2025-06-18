@@ -34,8 +34,8 @@ class SettingsExportModeStandalone extends React.PureComponent {
       <div className={css(styles.wrapper, this.props._isActive && styles.wrapperActive)}>
         <ul>
           <SettingsListItem 
-            title='Standalone'
-            description='Exports player and animation in a single JS file'
+            title='独立（Standalone）'
+            description='将动画和播放器打包到单个文件中导出（Exports animation and player bundled in a single file）'
             toggleItem={this.handleModeToggle}
             active={this.props._isActive} />
         </ul>

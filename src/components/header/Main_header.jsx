@@ -50,23 +50,23 @@ function Main_header(props) {
                     <BaseHeader />
 				</div>
                 <div className={css(styles.buttons_container)}>
-                    <BaseButton text='Render' type='green' classes={styles.button} disabled={!props.canRender} onClick={props.startRender} />
+                    <BaseButton text='渲染（Render）' type='green' classes={styles.button} disabled={!props.canRender} onClick={props.startRender} />
                     <div className={css(styles.buttons_group)}>
                         <BaseButton
-                            text='Apply Settings'
-                            alt='Apply Settings to Selected Comps'
+                            text='应用设置（Apply Settings）'
+                            alt='将设置应用到选定的合成（Apply Settings to Selected Comps）'
                             type='gray'
                             classes={styles.button}
                             onClick={props.applySettings}
                         />
                         <BaseButton
-                            text='Refresh list'
+                            text='刷新列表（Refresh list）'
                             type='gray'
                             classes={styles.button}
                             onClick={props.refresh}
                         />
                         <BaseButton
-                            text='Project Settings'
+                            text='项目设置（Project Settings）'
                             type='gray'
                             classes={styles.button}
                             onClick={props.openGlobalSettings}

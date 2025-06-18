@@ -111,8 +111,8 @@ class SettingsBanner extends React.PureComponent {
       <div className={css(styles.wrapper, this.props._isActive ? styles.wrapperActive: '')}>
         <ul>
           <SettingsListItem
-            title='Banner'
-            description='Exports a bundle of files for banner usage'
+            title='横幅（Banner）'
+            description='导出用于横幅使用的文件包（Exports a bundle of files for banner usage）'
             toggleItem={this.handleModeToggle}
             active={this.props._isActive}
           />
@@ -120,29 +120,29 @@ class SettingsBanner extends React.PureComponent {
         {this.props._isActive && 
           <ul className={css(styles.compsList)}>
             <SettingsListDropdown 
-              title='Lottie Library Origin'
-              description='Select where to load the library from'
+              title='Lottie 库来源（Lottie Library Origin）'
+              description='选择从何处加载库（Select where to load the library from）'
               onChange={this.handleLottieOriginChange}
               current={this.props.lottie_origin}
               options={[
-                {value:LottieLibraryOrigins.LOCAL, text: 'Default'}, 
+                {value:LottieLibraryOrigins.LOCAL, text: '默认（Default）'}, 
                 {value:LottieLibraryOrigins.CDNJS, text: 'cdnjs'}, 
-                {value:LottieLibraryOrigins.CUSTOM, text: 'Custom URL'}, 
-                {value:LottieLibraryOrigins.FILE_SYSTEM, text: 'Local File'}
+                {value:LottieLibraryOrigins.CUSTOM, text: '自定义 URL（Custom URL）'}, 
+                {value:LottieLibraryOrigins.FILE_SYSTEM, text: '本地文件（Local File）'}
               ]}  
             />
             {this.props.lottie_origin === LottieLibraryOrigins.FILE_SYSTEM &&
               <SettingsListFile
-                title='Set Location of lottie library'
-                description='Set the custom path of the lottie library'
+                title='设置 lottie 库位置（Set Location of lottie library）'
+                description='设置 lottie 库的自定义路径（Set the custom path of the lottie library）'
                 value={this.props.localPath}
                 onChange={this.props.handleBannerLibraryFileChange}
               />
             }
             {this.props.lottie_origin === LottieLibraryOrigins.CUSTOM &&
               <SettingsListInput
-                title='Set Location of lottie library'
-                description='Set the custom path of the lottie library'
+                title='设置 lottie 库位置（Set Location of lottie library）'
+                description='设置 lottie 库的自定义路径（Set the custom path of the lottie library）'
                 value={this.props.lottie_path}
                 onChange={this.props.handleBannerLibraryPathChange}
               />

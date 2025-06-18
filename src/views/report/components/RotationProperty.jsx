@@ -11,7 +11,7 @@ class Rotation extends React.Component {
     const property = this.props.property
     return [
       <Property
-        name={'Rotation X'}
+        name={'X 旋转（Rotation X）'}
         key={'X'}
         messages={property.rotationX}
         renderers={this.props.renderers}
@@ -20,7 +20,7 @@ class Rotation extends React.Component {
         shouldAutoExpand={shouldAutoExpand}
       />,
       <Property
-        name={'Rotation Y'}
+        name={'Y 旋转（Rotation Y）'}
         key={'Y'}
         messages={property.rotationY}
         renderers={this.props.renderers}
@@ -29,7 +29,7 @@ class Rotation extends React.Component {
         shouldAutoExpand={shouldAutoExpand}
       />,
       <Property
-        name={'Rotation Z'}
+        name={'Z 旋转（Rotation Z）'}
         key={'Z'}
         messages={property.rotationZ}
         renderers={this.props.renderers}
@@ -38,7 +38,7 @@ class Rotation extends React.Component {
         shouldAutoExpand={shouldAutoExpand}
       />,
       <Property
-        name={'Orientation'}
+        name={'方向（Orientation）'}
         key={'Orientation'}
         messages={property.orientation}
         renderers={this.props.renderers}
@@ -54,7 +54,7 @@ class Rotation extends React.Component {
     if (!property.isThreeD) {
       return (
         <Property
-          name={'Rotation'}
+          name={'旋转（Rotation）'}
           messages={property.rotation}
           renderers={this.props.renderers}
           messageTypes={this.props.messageTypes}
@@ -66,7 +66,7 @@ class Rotation extends React.Component {
       const messageCount = getPositionMessageCount(this.props.property, this.props.renderers, this.props.messageTypes, this.props.builders)
       return (
         <RowContainer
-          name={'Rotation'}
+          name={'旋转（Rotation）'}
           content={this.buildContent}
           messageCount={messageCount}
           shouldAutoExpand={this.props.shouldAutoExpand}

@@ -164,7 +164,7 @@ class FileImport extends React.Component {
     if(alerts && alerts.length) {
       return (
         <div className={css(styles.alerts)}>
-          <div className={css(styles.alert_title)}>Alerts</div>
+          <div className={css(styles.alert_title)}>提示（Alerts）</div>
           <div>
           {alerts.map((message, index) => {
             return (
@@ -186,7 +186,7 @@ class FileImport extends React.Component {
   buildEndMessage(props) {
     return (
       <div>
-        <div>Import Finished</div>
+        <div>导入完成（Import Finished）</div>
         {this.buildAlertMessages(props.messages)}
         
       </div>
@@ -196,7 +196,7 @@ class FileImport extends React.Component {
   buildFailedMessage(props) {
     return (
       <div>
-        <div>Import Failed</div>
+        <div>导入失败（Import Failed）</div>
         {this.buildAlertMessages(props.messages)}
         
       </div>
@@ -208,18 +208,18 @@ class FileImport extends React.Component {
       <div>
         <div className={css(styles.alert_message)}>
           <span>
-            Pending Commands: {props.pendingCommands}
+            待处理命令：{props.pendingCommands}（Pending Commands: {props.pendingCommands}）
           </span>
           <br/>
           <span>
-            Estimated remaining time: {Math.ceil(props.pendingCommands * 50 / 1000)} seconds
+            预计剩余时间：{Math.ceil(props.pendingCommands * 50 / 1000)} 秒（Estimated remaining time: {Math.ceil(props.pendingCommands * 50 / 1000)} seconds）
           </span>
         </div>
         <div className={css(styles.processing_message)}>
           {!!props.image.img_src && 
             <div>
               <div>
-                Here is a picture from Mars
+                这是一张来自火星的图片（Here is a picture from Mars）
               </div>
               <div className={css(styles.processing_image_container)}>
                 <img 
@@ -234,7 +234,7 @@ class FileImport extends React.Component {
             <div>
               <div className={css(styles.processing_cat_fact_container)}>
                 <div className={css(styles.processing_cat_fact_title)}>
-                  This process might take some time. Here is a cat fact.
+                  此过程可能需要一些时间。这是一个关于猫的事实（This process might take some time. Here is a cat fact）
                 </div>
                 <div className={css(styles.processing_cat_fact)}>
                   {props.fact.text}
@@ -263,13 +263,14 @@ class FileImport extends React.Component {
     return (
       <div>
         <div className={css(styles.idle_message)}>
-          To import a lottie animation choose one of the two options above.
+        要导入乐透动画，请选择上面两个选项之一。（To import a lottie animation choose one of the two options above.）
         </div>
         <div className={css(styles.idle_note)}>
-          Hi! this is a first version of the Lottie importer.<br/>
-          Some things are not fully supported but most of them are working.<br/>
-          If you see anything missing, please email me the json to hernantorrisi@gmail.com<br/>
-          Or create an issue in <a className={css(styles.link)} href='#' onClick={this.openInBrowser}>Lottie on github</a>
+          Hi! this is a first version of the Lottie importer.（你好！这是Lottie导入器的第一个版本。）<br/>
+          Some things are not fully supported but most of them are working.（有些功能还不完全支持，但大多数功能都正常工作。）<br/>
+          If you see anything missing, please email me the json to hernantorrisi@gmail.com（如果你发现任何缺失的功能，请将json发送到hernantorrisi@gmail.com）<br/>
+          Or create an issue in <a className={css(styles.link)} href='#' onClick={this.openInBrowser}>Lottie on github</a>（或者在github上创建一个issue）<br/>
+          汉化地址： <a className={css(styles.link)} href='#' onClick={() => openInBrowser('https://github.com/lethe6498/bodymoivn-chinese')}>bodymoivn-chinese</a>
         </div>
       </div>
     )

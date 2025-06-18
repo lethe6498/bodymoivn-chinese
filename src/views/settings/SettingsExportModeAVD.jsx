@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
 })
 
-class SettingsExportModeStandard extends React.PureComponent {
+class SettingsExportModeAVD extends React.PureComponent {
 
   handleModeToggle = () => {
     this.props.handleModeToggle('avd');
@@ -35,7 +35,7 @@ class SettingsExportModeStandard extends React.PureComponent {
         <ul>
           <SettingsListItem 
             title='AVD'
-            description='Exports an xml for Androids Animated Vector Drawable'
+            description='导出为Android矢量绘图格式（Exports as Android Vector Drawable format）'
             toggleItem={this.handleModeToggle}
             active={this.props._isActive} />
         </ul>
@@ -52,4 +52,4 @@ const mapDispatchToProps = {
   handleModeToggle: handleModeToggle,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SettingsExportModeStandard)
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsExportModeAVD)

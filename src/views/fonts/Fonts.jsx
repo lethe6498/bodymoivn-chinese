@@ -110,7 +110,7 @@ class Fonts extends React.Component {
             <Bodymovin animationData={fontsAnim} loop={true}>
               <div className={css(styles.header_animation_container)} />
             </Bodymovin>
-            <div className={css(styles.headerTitle)}>Select font families and font paths when necessary</div>
+            <div className={css(styles.headerTitle)}>选择字体族和字体路径（Select font families and font paths when necessary）</div>
           </div>
           <div className={css(styles.list)}>
             <div className={css(styles.list_items)}>
@@ -118,9 +118,9 @@ class Fonts extends React.Component {
             </div>
           </div>
           <div className={css(styles.buttons)}>
-            <BaseButton text='Cancel' type='green' onClick={this.cancelRender}></BaseButton>
+            <BaseButton text='取消（Cancel）' type='green' onClick={this.cancelRender}></BaseButton>
             <div className={css(styles.button_separator)}></div>
-            <BaseButton text='Save' type='green' onClick={this.setFonts}></BaseButton>
+            <BaseButton text='保存（Save）' type='green' onClick={this.setFonts}></BaseButton>
           </div>
         </div>
       </div>

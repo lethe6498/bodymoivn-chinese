@@ -59,13 +59,13 @@ class Message extends React.Component {
     warning: warningIcon,
   }
   labels = {
-    error: 'Error',
-    warning: 'Warning',
+    error: '错误（Error）',
+    warning: '警告（Warning）',
   }
   renderers = {
-    android: 'Android',
+    android: '安卓（Android）',
     ios: 'iOS',
-    browser: 'Browser',
+    browser: '浏览器（Browser）',
     skottie: 'Skottie',
   }
 
@@ -79,7 +79,7 @@ class Message extends React.Component {
 
   buildRenderers = renderers => (
     <div className={css(styles.renderers)}>
-      <span className={css(styles.renderers_title)}>Renderers: </span>
+      <span className={css(styles.renderers_title)}>渲染器（Renderers）: </span>
       {renderers.map((renderer, index) => 
         (<div key={renderer} className={css(styles.renderer)}>
           {index > 0 && <span className={css(styles.renderer_separator)}> | </span>}
@@ -97,53 +97,53 @@ class Message extends React.Component {
   )
 
   buildExpressionMessage = () => (
-    <div>Expressions are not supported</div>
+    <div>表达式不受支持（Expressions are not supported）</div>
   )
 
   buildWiggleMessage = () => (
-    <div>wiggle expressions is not supported</div>
+    <div>wiggle 表达式不受支持（wiggle expressions is not supported）</div>
   )
 
   buildSepareteDimensionsMessage = () => (
-    <div>Separate dimensions are not supported</div>
+    <div>分离尺寸不受支持（Separate dimensions are not supported）</div>
   )
 
   buildOrientAlongPathMessage = () => (
-    <div>Orient along path is not supported</div>
+    <div>沿路径定向不受支持（Orient along path is not supported）</div>
   )
 
   buildUnhandleLayer = () => (
-    <div>This layer doesn't have reports yet</div>
+    <div>此图层尚未有报告（This layer doesn't have reports yet）</div>
   )
 
   buildThreeDLayer = () => (
-    <div>3D layers have partial or no support</div>
+    <div>3D 图层部分支持或不支持（3D layers have partial or no support）</div>
   )
 
   buildMotionBlur = () => (
-    <div>Motion blur is not supported</div>
+    <div>运动模糊不受支持（Motion blur is not supported）</div>
   )
 
   buildDisabledLayer = () => (
-    <div>Hidden and Guided layers are not supported by these renderers</div>
+    <div>隐藏和引导图层不受这些渲染器支持（Hidden and Guided layers are not supported by these renderers）</div>
   )
 
   buildUnhandledShape = () => (
-    <div>This shape property is not supported</div>
+    <div>此形状属性不受支持（This shape property is not supported）</div>
   )
 
   buildUnhandledShape = () => (
-    <div>This shape property is not supported</div>
+    <div>此形状属性不受支持（This shape property is not supported）</div>
   )
 
   buildPuckerAndBloatProperties = () => (
-    <div>Pucker and bloat is not supported by these renderers</div>
+    <div>这些渲染器不支持收缩和膨胀（Pucker and bloat is not supported by these renderers）</div>
   )
 
   buildEffects = (payload) => {
     const effects = payload.effects;
     return (
-      <div>These effects are not supported:
+      <div>这些效果不受支持（These effects are not supported）:
         <div>
           {effects.map((effect, index) => (
             <div key={index}>{effect}</div>
@@ -156,7 +156,7 @@ class Message extends React.Component {
   buildAnimatorProperties = (payload) => {
     const properties = payload.properties;
     return (
-      <div>These text animator properties are not supported:
+      <div>这些文本动画器属性不受支持（These text animator properties are not supported）:
         <div>
           {properties.map(animator => (
             <div key={animator}>{animator}</div>
@@ -169,7 +169,7 @@ class Message extends React.Component {
   buildTextSelectorProperties = (payload) => {
     const properties = payload.properties;
     return (
-      <div>These text animator selector properties are not supported:
+      <div>这些文本动画器选择器属性不受支持（These text animator selector properties are not supported）:
         <div>
           {properties.map(animator => (
             <div key={animator}>{animator}</div>
@@ -180,75 +180,75 @@ class Message extends React.Component {
   }
 
   buildMergePaths = () => (
-    <div>Merge paths are not supported</div>
+    <div>合并路径不受支持（Merge paths are not supported）</div>
   )
 
   buildTextAnimators = () => (
-    <div>Text animators are not supported</div>
+    <div>文本动画器不受支持（Text animators are not supported）</div>
   )
 
   buildLargeImage = () => (
-    <div>This layer source size is large and can affect performance. Consider using smaller images.</div>
+    <div>此图层源尺寸较大，可能影响性能。建议使用较小的图像（This layer source size is large and can affect performance. Consider using smaller images）</div>
   )
 
   buildIllustratorAsset = () => (
-    <div>It seems you are using an asset coming from illustrator. Consider converting it to shapes so it gets exported as vectors instead of a raster image.</div>
+    <div>看起来您正在使用来自 Illustrator 的资源。建议将其转换为形状，以便作为矢量而不是光栅图像导出（It seems you are using an asset coming from illustrator. Consider converting it to shapes so it gets exported as vectors instead of a raster image）</div>
   )
 
   buildCameraLayer = () => (
-    <div>Layers of type camera are not supported.</div>
+    <div>相机类型的图层不受支持（Layers of type camera are not supported）</div>
   )
 
   buildNotSupportedLayer = () => (
-    <div>This type of layer is not supported.</div>
+    <div>此类型的图层不受支持（This type of layer is not supported）</div>
   )
 
   buildAdjustmentLayer = () => (
-    <div>Adjustment layers get exported as null layers.</div>
+    <div>调整图层将作为空图层导出（Adjustment layers get exported as null layers）</div>
   )
 
   buildFailedLayer = () => (
-    <div>this layer failed while creating the report.</div>
+    <div>创建报告时此图层失败（this layer failed while creating the report）</div>
   )
 
   buildUnsupportedStyle = () => (
-    <div>this layer style is not supported.</div>
+    <div>此图层样式不受支持（this layer style is not supported）</div>
   )
 
   buildLargeMask = () => (
-    <div>Large masks can have an impact on performance.</div>
+    <div>大型蒙版可能会影响性能（Large masks can have an impact on performance）</div>
   )
 
   buildLargeEffect = () => (
-    <div>Large layers with effects can have an impact on performance.</div>
+    <div>带有效果的大型图层可能会影响性能（Large layers with effects can have an impact on performance）</div>
   )
 
   buildUnsupportedProperty = () => (
-    <div>This property is not supported.</div>
+    <div>此属性不受支持（This property is not supported）</div>
   )
 
   buildUnsupportedMaskMode = () => (
-    <div>This mask mode is not supported.</div>
+    <div>此蒙版模式不受支持（This mask mode is not supported）</div>
   )
 
   buildFilterSize = () => (
-    <div>You might need to set the filterSize property of the rendererSettings
-      <div>check
+    <div>您可能需要设置 rendererSettings 的 filterSize 属性
+      <div>查看
         <span> </span>
         <a
           onClick={() => openInBrowser('https://github.com/airbnb/lottie-web/wiki/Renderer-Settings#filtersize-svg-renderer')}
           href='#'>
-          here
+          这里
         </a>
         <span> </span>
-         for more info
+        获取更多信息
       </div>
     </div>
   )
 
   buildUnhandledMessageType = type => (
-    <div>this error type: 
-      <span className={css(styles.missing_error)}> {type}</span> is not supported by the reader.
+    <div>此错误类型：
+      <span className={css(styles.missing_error)}> {type}</span> 不受读取器支持。
     </div>
   )
 

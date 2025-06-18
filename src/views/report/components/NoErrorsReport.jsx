@@ -26,7 +26,7 @@ class NoErrorsReport extends React.Component {
     return (
       <div className={css(styles.wrapper)}>
         <div className={css(styles.content)}>
-          No errors to report for {this.props.name}
+          {this.props.name} 没有错误报告（No errors to report for {this.props.name}）
         </div>
       </div>
       );

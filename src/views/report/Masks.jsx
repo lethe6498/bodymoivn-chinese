@@ -46,7 +46,7 @@ class Masks extends React.Component {
     const messageCount = getMasksMessageCount(this.props.masks, this.props.renderers, this.props.messageTypes, this.props.builders)
     return (
       <RowContainer
-        name={'Masks'}
+        name={'蒙版（Masks）'}
         content={this.buildContent}
         messageCount={messageCount}
         shouldAutoExpand={this.props.shouldAutoExpand}

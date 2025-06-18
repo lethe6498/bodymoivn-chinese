@@ -13,7 +13,7 @@ class Transform extends React.Component {
     return ([
         <Property
           key={'anchorPoint'}
-          name={'Anchor Point'}
+          name={'锚点（Anchor Point）'}
           messages={this.props.transform.anchorPoint}
           renderers={this.props.renderers}
           messageTypes={this.props.messageTypes}
@@ -30,7 +30,7 @@ class Transform extends React.Component {
         />,
         <Property
           key={'scale'}
-          name={'Scale'}
+          name={'缩放（Scale）'}
           messages={this.props.transform.scale}
           renderers={this.props.renderers}
           messageTypes={this.props.messageTypes}
@@ -47,7 +47,7 @@ class Transform extends React.Component {
         />,
         <Property
           key={'opacity'}
-          name={'Opacity'}
+          name={'不透明度（Opacity）'}
           messages={this.props.transform.opacity}
           renderers={this.props.renderers}
           messageTypes={this.props.messageTypes}
@@ -56,7 +56,7 @@ class Transform extends React.Component {
         />,
         <Property
           key={'skew'}
-          name={'Skew'}
+          name={'倾斜（Skew）'}
           messages={this.props.transform.skew}
           renderers={this.props.renderers}
           messageTypes={this.props.messageTypes}
@@ -65,7 +65,7 @@ class Transform extends React.Component {
         />,
         <Property
           key={'skewAxis'}
-          name={'Skew Axis'}
+          name={'倾斜轴（Skew Axis）'}
           messages={this.props.transform.skewAxis}
           renderers={this.props.renderers}
           messageTypes={this.props.messageTypes}
@@ -74,7 +74,7 @@ class Transform extends React.Component {
         />,
         <Property
           key={'startOpacity'}
-          name={'Start Opacity'}
+          name={'起始不透明度（Start Opacity）'}
           messages={this.props.transform.startOpacity}
           renderers={this.props.renderers}
           messageTypes={this.props.messageTypes}
@@ -83,7 +83,7 @@ class Transform extends React.Component {
         />,
         <Property
           key={'endOpacity'}
-          name={'End Opacity'}
+          name={'结束不透明度（End Opacity）'}
           messages={this.props.transform.endOpacity}
           renderers={this.props.renderers}
           messageTypes={this.props.messageTypes}
@@ -98,7 +98,7 @@ class Transform extends React.Component {
     const messageCount = getTransformMessageCount(this.props.transform, this.props.renderers, this.props.messageTypes, this.props.builders)
     return (
       <RowContainer
-        name={'Transform'}
+        name={'变换（Transform）'}
         content={this.buildContent}
         messageCount={messageCount}
         shouldAutoExpand={this.props.shouldAutoExpand}

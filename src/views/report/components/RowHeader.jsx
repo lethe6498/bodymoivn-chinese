@@ -100,7 +100,7 @@ class RowHeader extends React.Component {
           <div
           onClick={this.handleOnSelect}
           className={css(styles['title-link'])} >
-          go >
+          前往（go）{'>'}
           </div>
         }
         <div className={css(styles['title-space'])} />

@@ -35,8 +35,8 @@ class SettingsExportModeReport extends React.PureComponent {
       <div className={css(styles.wrapper, this.props._isActive && styles.wrapperActive)}>
         <ul>
           <SettingsListItem 
-            title='Report'
-            description='Export a report of the animation'
+            title='报告（Report）'
+            description='导出动画的报告（Export a report of the animation）'
             toggleItem={this.handleModeToggle}
             active={this.props._isActive} />
         </ul>

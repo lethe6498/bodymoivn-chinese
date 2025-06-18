@@ -10,55 +10,55 @@ class InnerGlowStyle extends React.Component {
   styleProperties = [
     {
       key: 'blendMode',
-      name: 'Blend Mode',
+      name: '混合模式（Blend Mode）',
     },
     {
       key: 'opacity',
-      name: 'Opacity',
+      name: '不透明度（Opacity）',
     },
     {
       key: 'noise',
-      name: 'Noise',
+      name: '噪点（Noise）',
     },
     {
       key: 'colorChoice',
-      name: 'Color Type',
+      name: '颜色类型（Color Type）',
     },
     {
       key: 'color',
-      name: 'Color',
+      name: '颜色（Color）',
     },
     {
       key: 'gradient',
-      name: 'Colors',
+      name: '颜色（Colors）',
     },
     {
       key: 'gradientSmoothness',
-      name: 'Gradient Smoothness',
+      name: '渐变平滑度（Gradient Smoothness）',
     },
     {
       key: 'glowTechnique',
-      name: 'Technique',
+      name: '技术（Technique）',
     },
     {
       key: 'source',
-      name: 'Source',
+      name: '源（Source）',
     },
     {
       key: 'chokeMatte',
-      name: 'Spread',
+      name: '扩散（Spread）',
     },
     {
       key: 'blur',
-      name: 'Size',
+      name: '大小（Size）',
     },
     {
       key: 'inputRange',
-      name: 'Range',
+      name: '范围（Range）',
     },
     {
       key: 'shadingNoise',
-      name: 'Jitter',
+      name: '抖动（Jitter）',
     },
   ]
 
@@ -78,7 +78,7 @@ class InnerGlowStyle extends React.Component {
 
   buildMessages = shouldAutoExpand => (
     <Property
-      name={'Style Messages'}
+      name={'样式消息（Style Messages）'}
       key={'styles'}
       messages={this.props.style.messages}
       renderers={this.props.renderers}

@@ -55,8 +55,8 @@ class SettingsExportModeStandard extends React.PureComponent {
       <div className={css(styles.wrapper, this.props._isActive ? styles.wrapperActive: '')}>
         <ul>
           <SettingsListItem 
-            title='Standard'
-            description='Exports animation as a json file'
+            title='标准（Standard）'
+            description='将动画导出为 json 文件（Exports animation as a json file）'
             toggleItem={this.handleModeToggle}
             active={this.props._isActive} />
         </ul>
@@ -67,8 +67,8 @@ class SettingsExportModeStandard extends React.PureComponent {
                         >*/}
               <ul className={css(styles.compsList)}>
                 <SettingsListItem 
-                  title='Split'
-                  description='Splits comp in multiple json files every X seconds'
+                  title='分割（Split）'
+                  description='每 X 秒将合成分割为多个 json 文件（Splits comp in multiple json files every X seconds）'
                   toggleItem={this.toggleSegmented}
                   active={this.props.settings ? this.props.settings.segmented : false} 
                   needsInput={true} 

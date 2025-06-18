@@ -142,7 +142,7 @@ class Settings extends React.PureComponent {
     this.storedSettings = null
     this.cancelSettings = this.cancelSettings.bind(this)
     this.toggleValue = this.toggleValue.bind(this)
-    this.toggleGlyphs = this.toggleValue.bind(this,'glyphs')
+    this.toggleGlyphs = this.toggleValue.bind(this,'字形（glyphs）')
     this.toggleExtraChars = this.toggleValue.bind(this,'includeExtraChars')
     this.toggleGuideds = this.toggleValue.bind(this,'guideds')
     this.toggleHiddens = this.toggleValue.bind(this,'hiddens')
@@ -247,62 +247,62 @@ class Settings extends React.PureComponent {
     	<div className={css(styles.wrapper)}>
         <div className={css(styles.container)}>
           <div className={css(styles.header)}>
-            <div className={css(styles.headerTitle)}>Settings</div>
+            <div className={css(styles.headerTitle)}>设置（Settings）</div>
               <div className={css(styles.headerButtons)}>
                 <button 
                   className={css(styles.headerButtonsButton)}
                   onClick={this.props.onRememberSettings}
                 >
-                 Remember Settings
+                  记住设置（Remember Settings）
                 </button>
                 <button 
                   className={css(styles.headerButtonsButton)}
                   onClick={this.props.onApplySettings}
                 >
-                 Apply Settings
+                  应用设置（Apply Settings）
                 </button>
               </div>
           </div>
           <ul className={css(styles.compsList)}>
             <SettingsListItem 
-              title='Glyphs'
-              description='If selected it converts fonts to shapes'
+              title='字形（Glyphs）'
+              description='如果选中，将字体转换为形状（If selected it converts fonts to shapes）'
               toggleItem={this.toggleGlyphs}
-              active={this.props.settings ? this.props.settings.glyphs : false} />
+              active={this.props.settings ? this.props.settings['字形（glyphs）'] : false} />
             <SettingsListItem 
-              title='Replace Characters with Comps'
-              description='Replaces characters with custom compositions from folder'
+              title='用合成替换字符（Replace Characters with Comps）'
+              description='用文件夹中的自定义合成替换字符（Replaces characters with custom compositions from folder）'
               toggleItem={this.toggleExtraChars}
               active={this.props.settings ? this.props.settings.includeExtraChars : false} />
-            {!this.props.settings.glyphs && 
+            {!this.props.settings['字形（glyphs）'] && 
               <SettingsListItem 
-                title='Bundle Fonts'
-                description='if fonts are reachable on the file system. They will get exported with the bundle. (Works with Skottie player only)'
+                title='打包字体（Bundle Fonts）'
+                description='如果字体在文件系统中可访问，它们将与包一起导出（仅适用于 Skottie 播放器）（if fonts are reachable on the file system. They will get exported with the bundle. (Works with Skottie player only)）'
                 toggleItem={this.toggleBundleFonts}
                 active={this.props.settings ? this.props.settings.bundleFonts : false} 
               />
             }
             {this.props.settings.bundleFonts && 
               <SettingsListItem 
-                title='Inline Fonts'
-                description='Inline fonts on the json file'
+                title='内联字体（Inline Fonts）'
+                description='在 json 文件中内联字体（Inline fonts on the json file）'
                 toggleItem={this.toggleInlineFonts}
                 active={this.props.settings ? this.props.settings.inlineFonts : false} 
               />
             }
             <SettingsListItem 
-              title='Hidden'
-              description='Select if you need HIDDEN layers to be exported'
+              title='隐藏（Hidden）'
+              description='选择是否需要导出隐藏图层（Select if you need HIDDEN layers to be exported）'
               toggleItem={this.toggleHiddens}
               active={this.props.settings ? this.props.settings.hiddens : false}  />
             <SettingsListItem 
-              title='Guides'
-              description='Select if you need GUIDED layers to be exported'
+              title='参考线（Guides）'
+              description='选择是否需要导出参考线图层（Select if you need GUIDED layers to be exported）'
               toggleItem={this.toggleGuideds}
               active={this.props.settings ? this.props.settings.guideds : false}  />
             <SettingsListItem 
-              title='Extra Comps'
-              description='Select if expressions are pointing to external comps'
+              title='额外合成（Extra Comps）'
+              description='检查表达式是否指向外部合成（Select if expressions are pointing to external comps）'
               toggleItem={this.toggleExtraComps}
               active={this.props.settings ? this.props.settings.extraComps.active : false}  />
               {this.props.settings && this.props.settings.extraComps.active && 
@@ -327,92 +327,77 @@ class Settings extends React.PureComponent {
             
             <SettingsExportMode />
             <SettingsCollapsableItem 
-              title={'Expression options'}
-              description={'Converts expressions to keyframes. This might be a slow process.'}
+              title='表达式选项（Expression options）'
+              description='将表达式转换为关键帧。这可能是一个缓慢的过程。（Converts expressions to keyframes. This might be a slow process.）'
               >
               <SettingsListItem 
-                title='Convert expressions to keyframes'
-                description='Exports expressions as keyframes (can increase file size significantly)'
+                title='将表达式转换为关键帧（Convert expressions to keyframes）'
+                description='将表达式导出为关键帧（可能会显著增加文件大小）（Exports expressions as keyframes (can increase file size significantly)）'
                 toggleItem={this.toggleBakeExpressionProperties}
                 active={this.props.settings ? this.props.settings.expressions.shouldBake : false}
               />
-              {/*<SettingsListItem 
-                title='Cache values'
-                description='Caches keyframe values to speed up next render.'
-                toggleItem={this.toggleCacheExpressionProperties}
-                active={this.props.settings ? this.props.settings.expressions.shouldCacheExport : false}
-              />*/}
               <SettingsListItem 
-                title='Extend conversion beyond work area'
-                description='Use it when you need to convert keyframes beyond the workarea. For example when using time remapping.'
+                title='扩展转换超出工作区（Extend conversion beyond work area）'
+                description='当您需要在工作区之外转换关键帧时使用它。例如，当使用时间重映射时。（Use it when you need to convert keyframes beyond the workarea. For example when using time remapping.）'
                 toggleItem={this.toggleExtendBakeBeyondWorkArea}
                 active={this.props.settings ? this.props.settings.expressions.shouldBakeBeyondWorkArea : false}
               />
-              {/*<SettingsListItem 
-                title='Sample size'
-                description='Samples keyframes every n frames. Might reduce file size and speed up export.'
-                active={this.props.settings.expressions.shouldBake} 
-                needsInput={true} 
-                inputValue={this.props.settings ? this.props.settings.expressions.sampleSize : 1} 
-                inputValueChange={this.sampleSizeChange}
-              />*/}
               <SettingsListItem 
-                title='Remove expression properties (Reduces filesize)'
-                description='Removes properties that are only used for expressions. Select if your animation is not using expressions or your expressions are not using special properties.'
+                title='移除表达式属性（减小文件大小）（Remove expression properties (Reduces filesize)）'
+                description='移除仅用于表达式的属性。如果您的动画不使用表达式或您的表达式不使用特殊属性，请选择此项。（Removes properties that are only used for expressions. Select if your animation is not using expressions or your expressions are not using special properties.）'
                 toggleItem={this.toggleExpressionProperties}
                 active={this.props.settings ? this.props.settings.ignore_expression_properties : false}  />
-
             </SettingsCollapsableItem>
             <SettingsCollapsableItem 
-              title={'Advanced export settings'}
+              title={'高级导出设置（Advanced export settings）'}
               description={'Advanced export features'}
               >
               <SettingsListItem 
-                title='Export old json format (for backwards compatibility)'
-                description='Exports old json format in case you are using it with older players'
+                title='导出旧版 json 格式（用于向后兼容）（Export old json format (for backwards compatibility)）'
+                description='导出旧版 json 格式，以防您使用较旧的播放器（Exports old json format in case you are using it with older players）'
                 toggleItem={this.toggleJsonFormat}
                 active={this.props.settings ? this.props.settings.export_old_format : false}  />
               <SettingsListItem 
-                title='Trim unused keyframes and layers'
-                description='Removes layers and keyframes beyond the workarea'
+                title='修剪未使用的关键帧和图层（Trim unused keyframes and layers）'
+                description='移除工作区之外的图层和关键帧（Removes layers and keyframes beyond the workarea）'
                 toggleItem={this.toggleTrimData}
                 active={this.props.settings ? this.props.settings.shouldTrimData : false}  />
               <SettingsListItem 
-                title='Skip default properties (Reduces filesize)'
-                description='Skips default properties. Uncheck if you are not using the latest Ios, Android or web players.'
+                title='跳过默认属性（减小文件大小）（Skip default properties (Reduces filesize)）'
+                description='跳过默认属性。如果您不使用最新的 iOS、Android 或 Web 播放器，请取消选中（Skips default properties. Uncheck if you are not using the latest Ios, Android or web players）'
                 toggleItem={this.toggleSkipDefaultProperties}
                 active={this.props.settings ? this.props.settings.skip_default_properties : false}  />
               <SettingsListItem 
-                title='Include non supported properties'
-                description='Only check this if you need specific properties for uses  other that the player.'
+                title='包含不支持的属性（Include non supported properties）'
+                description='仅当您需要播放器以外的特定属性时才选中此项（Only check this if you need specific properties for uses other that the player）'
                 toggleItem={this.toggleNotSupportedProperties}
                 active={this.props.settings ? this.props.settings.not_supported_properties : false}  />
               <SettingsListItem 
-                title='Pretty print JSON'
-                description='Export in a more human readable format. Do not use for final file since filesize gets significantly larger.'
+                title='美化 JSON 输出（Pretty print JSON）'
+                description='以更易读的格式导出。不要用于最终文件，因为文件大小会显著增加（Export in a more human readable format. Do not use for final file since filesize gets significantly larger）'
                 toggleItem={this.togglePrettyPrint}
                 active={this.props.settings ? this.props.settings.pretty_print : false}  />
               <SettingsListItem 
-                title='Use composition names as ids'
-                description='Composition names will be used as reference ids'
+                title='使用合成名称作为ID'
+                description='使用合成名称作为ID（Use composition names as ids）'
                 toggleItem={this.toggleCompNamesAsIds}
                 active={this.props.settings ? this.props.settings.useCompNamesAsIds : false}  />
             </SettingsCollapsableItem>
             <SettingsCollapsableItem 
-              title={'Essential properties'}
-              description={'Essential properties'}
+              title={'必要属性（Essential properties）'}
+              description={'必要属性（Essential properties）'}
               >
                 
                 <SettingsListItem
-                  title='Export essential properties'
-                  description='Export essential properties from the root composition'
+                  title='导出必要属性'
+                  description='从根合成导出必要属性（Export essential properties from the root composition）'
                   toggleItem={this.toggleEssentialPropertiesActive}
                   active={this.props.settings ? this.props.settings.essentialProperties.active : false}
                 />
                 {this.props.settings.essentialProperties.active &&
                   <SettingsListItem
-                    title='Export essential properties as slots'
-                    description='If active will map essential properties to slots on the json file that allows for easy modification. If deactivated, it will replace the properties inline in the composition.'
+                    title='将必要属性导出为插槽'
+                    description='将必要属性导出为插槽（Export essential properties as slots）'
                     toggleItem={this.toggleEssentialPropertiesAsSlots}
                     active={this.props.settings ? this.props.settings.essentialProperties.useSlots : false}
                   />
@@ -437,22 +422,22 @@ class Settings extends React.PureComponent {
             />
             <SettingsTemplate/>
             <SettingsCollapsableItem 
-              title={'Audio'}
-              description={'Audio Settings'}
+              title={'音频（Audio）'}
+              description={'音频设置（Audio Settings）'}
               >
               <SettingsListItem 
-                title='Enabled'
-                description='Export audio layers (this will process audio layers and export them as mp3 files).'
+                title='启用（Enabled）'
+                description='导出音频图层（这将处理音频图层并将它们导出为 mp3 文件）（Export audio layers (this will process audio layers and export them as mp3 files)）'
                 toggleItem={this.toggleAudioLayers}
                 active={this.props.settings ? this.props.settings.audio.isEnabled : false}  />
               <SettingsListItem 
-                title='Rasterize Waveforms'
-                description='It rasterizes waveform instead of exporting keyframes (unchecked option only works in Skottie)'
+                title='栅格化波形（Rasterize Waveforms）'
+                description='它栅格化波形而不是导出关键帧（未选中选项仅在 Skottie 中有效）（It rasterizes waveform instead of exporting keyframes (unchecked option only works in Skottie)）'
                 toggleItem={this.toggleRasterizeWaveform}
                 active={this.props.settings ? this.props.settings.audio.shouldRaterizeWaveform : false}  />
               <SettingsListDropdown 
-                title='Audio quality'
-                description='Select audio quality for export'
+                title='音频质量（Audio quality）'
+                description='选择导出音频质量（Select audio quality for export）'
                 onChange={this.handleBitRateChange}
                 current={this.props.settings.audio.bitrate}
                 options={audioBitOptions}  
@@ -460,9 +445,9 @@ class Settings extends React.PureComponent {
             </SettingsCollapsableItem>
           </ul>
           <div className={css(styles.bottomNavigation)}>
-            <BaseButton text='Cancel' type='gray' onClick={this.cancelSettings}></BaseButton>
+            <BaseButton text='取消（Cancel）' type='gray' onClick={this.cancelSettings}></BaseButton>
             <div className={css(styles.bottomNavigationSeparator)}></div>
-            <BaseButton text='Save' type='green' onClick={this.props.goToComps}></BaseButton>
+            <BaseButton text='保存（Save）' type='green' onClick={this.props.goToComps}></BaseButton>
           </div>
         </div>
     	</div>

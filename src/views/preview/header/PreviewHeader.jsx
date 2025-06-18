@@ -121,12 +121,12 @@ class PreviewHeader extends PureComponent {
             <div className={css(styles.container)}>
                 <BaseHeader />
 				<div className={css(styles.buttons_container)}>
-                    <BaseButton text='Browse Local Files' type='green' classes={styles.button} onClick={props.browseFiles}/>
-                    <BaseButton text='Current Renders' type='green' classes={styles.button} onClick={props.selectCurrentRenders}/>
+                    <BaseButton text='浏览本地文件（Browse Local Files）' type='green' classes={styles.button} onClick={props.browseFiles}/>
+                    <BaseButton text='当前渲染（Current Renders）' type='green' classes={styles.button} onClick={props.selectCurrentRenders}/>
 				</div>
                 <div className={css(styles.separator)}></div>
                     <div className={css(styles.renderersContainer)}>
-                        <div className={css(styles.renderersLabel)}>Previewer:
+                        <div className={css(styles.renderersLabel)}>预览器（Previewer）:
                         </div>
                         <div
                             className={css(styles.previewOption)}
@@ -141,7 +141,7 @@ class PreviewHeader extends PureComponent {
                                     
                                 />
                             </BodymovinCheckbox>
-                            <span>Browser</span>
+                            <span>浏览器（Browser）</span>
                         </div>
                         <div
                             className={css(styles.previewOption)}
@@ -165,7 +165,7 @@ class PreviewHeader extends PureComponent {
                         <div className={css(styles.colorPicker)}>
                             <span
                                 className={css(styles['colorPicker-label'])}
-                            >Background color</span>
+                            >背景颜色（Background color）</span>
                             <div
                                 onClick={this.toggleColorPicker}
                                 className={css(styles['colorPicker-thumb'])}

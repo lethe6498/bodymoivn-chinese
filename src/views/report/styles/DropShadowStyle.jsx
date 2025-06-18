@@ -10,39 +10,39 @@ class DropShadowStyle extends React.Component {
   styleProperties = [
     {
       key: 'color',
-      name: 'Color',
+      name: '颜色（Color）',
     },
     {
       key: 'opacity',
-      name: 'Opacity',
+      name: '不透明度（Opacity）',
     },
     {
       key: 'angle',
-      name: 'Angle',
+      name: '角度（Angle）',
     },
     {
       key: 'size',
-      name: 'Size',
+      name: '大小（Size）',
     },
     {
       key: 'distance',
-      name: 'Distance',
+      name: '距离（Distance）',
     },
     {
       key: 'spread',
-      name: 'Spread',
+      name: '扩散（Spread）',
     },
     {
       key: 'blendMode',
-      name: 'Blend Mode',
+      name: '混合模式（Blend Mode）',
     },
     {
       key: 'noise',
-      name: 'Noise',
+      name: '噪点（Noise）',
     },
     {
       key: 'knocksOut',
-      name: 'Layer Knocks Out Drop Shadow',
+      name: '图层遮挡投影（Layer Knocks Out Drop Shadow）',
     },
   ]
 
@@ -62,7 +62,7 @@ class DropShadowStyle extends React.Component {
 
   buildMessages = shouldAutoExpand => (
     <Property
-      name={'Style Messages'}
+      name={'样式消息（Style Messages）'}
       key={'styles'}
       messages={this.props.style.messages}
       renderers={this.props.renderers}

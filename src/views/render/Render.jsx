@@ -195,7 +195,7 @@ class Render extends React.Component {
   render() {
   	let progress = this.props.render.progress
   	let barStyle = {'transform':'translateX(-' + 100  * (1 - progress) + '%)'}
-    let finishText = this.props.render.finished ? 'Done' : 'Cancel'
+    let finishText = this.props.render.finished ? '完成（Done）' : '取消（Cancel）'
     return (
     	<div className={css(styles.wrapper)}>
     		<div className={css(styles.container)}>
@@ -220,7 +220,7 @@ class Render extends React.Component {
     		</div>
         {this.state.templateErrors && <div className={css(styles.templateModal)} onClick={this.closeTemplate}>
           <div className={css(styles.templateModalContent)}>
-            <div className={css(styles.templateModalContentTitle)}>The animation does not comply to the template requirements</div>
+            <div className={css(styles.templateModalContentTitle)}>动画不符合模板要求（The animation does not comply to the template requirements）</div>
             <ul className={css(styles.templateModalContentList)}>
               {this.state.templateErrors.map((templateError, templateErrorIndex) => {
                 return <li key={templateErrorIndex} className={css(styles.templateModalContentListItem)}>{templateError.message}</li>

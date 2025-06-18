@@ -78,7 +78,7 @@ class Player extends React.Component {
       <div className={css(styles.container)}>
         <BaseHeader />
         <div className={css(styles.back_container)}>
-          <BaseButton text={'Clear Caché'} type='green' onClick={this.props.clearCache} />
+          <BaseButton text={'清除缓存'} type='green' onClick={this.props.clearCache} />
         </div>
         <div className={css(styles.anim_container)}>
           <Bodymovin animationData={anim} autoplay={true} loop={true}>
@@ -88,18 +88,18 @@ class Player extends React.Component {
         <div className={css(styles.text_container)}>
             <div className={css(styles.text_title)}>Bodymovin</div>
             <div className={css(styles.text_par)}>
-              <p>This plugin exports After Effects animations to a web compatible format.</p>
-              <p>In order to play the exported animation on your browser follow the instructions at 
-                <a className={css(styles.link)} href='#' onClick={this.openInBrowser}> Lottie on github</a>
+              <p>此插件可以将 After Effects 动画导出为网页兼容格式。</p>
+              <p>要在浏览器中播放导出的动画，请按照
+                <a className={css(styles.link)} href='#' onClick={this.openInBrowser}> Lottie 在 github 上的说明</a>
               </p>
               <br />
-              <p>You can get the latest version of the player from the repository or copy the one included in the extension here.</p>
+              <p>您可以从代码仓库获取最新版本的播放器，或在此处复制扩展中包含的播放器。</p>
             </div>
         </div>
         <div className={css(styles.buttons_container)}>
-          <BaseButton text={'Get the Player'} type='green' onClick={this.getPlayer} />
+          <BaseButton text={'获取播放器（get the player）'} type='green' onClick={this.getPlayer} />
           <div className={css(styles.buttonSeparator)}></div>
-          <BaseButton text={'Get the Player Gzipped'} type='green'  onClick={this.getPlayerZipped}/>
+          <BaseButton text={'获取压缩版播放器（get the compressed player）'} type='green'  onClick={this.getPlayerZipped}/>
         </div>
       </div>
       );

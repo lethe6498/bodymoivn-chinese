@@ -11,7 +11,7 @@ class Position extends React.Component {
     const property = this.props.property
     return [
       <Property
-        name={'Position X'}
+        name={'X 位置（Position X）'}
         key={'X'}
         messages={property.positionX}
         renderers={this.props.renderers}
@@ -20,7 +20,7 @@ class Position extends React.Component {
         shouldAutoExpand={shouldAutoExpand}
       />,
       <Property
-        name={'Position Y'}
+        name={'Y 位置（Position Y）'}
         key={'Y'}
         messages={property.positionY}
         renderers={this.props.renderers}
@@ -30,7 +30,7 @@ class Position extends React.Component {
       />,
       property.positionZ && 
         <Property
-          name={'Position Z'}
+          name={'Z 位置（Position Z）'}
           key={'Z'}
           messages={property.positionZ}
           renderers={this.props.renderers}
@@ -46,7 +46,7 @@ class Position extends React.Component {
     if (!property.dimensionsSeparated) {
       return (
         <Property
-          name={'Position'}
+          name={'位置（Position）'}
           messages={property.position}
           renderers={this.props.renderers}
           messageTypes={this.props.messageTypes}
@@ -58,7 +58,7 @@ class Position extends React.Component {
       const messageCount = getPositionMessageCount(this.props.property, this.props.renderers, this.props.messageTypes, this.props.builders)
       return (
         <RowContainer
-          name={'Position'}
+          name={'位置（Position）'}
           content={this.buildContent}
           messageCount={messageCount}
           shouldAutoExpand={this.props.shouldAutoExpand}

@@ -78,7 +78,7 @@ function Import_header(props) {
 				<div className={css(styles.buttons_container)}>
                     {getHeaderType(props.state) !== 'processing' && 
                         <div className={css(styles.buttons_subgroup)}>
-                            <BaseButton text='Import Local File' type='green' classes={styles.button_flex} onClick={props.onSelect} />
+                            <BaseButton text='导入本地文件（Import Local File）' type='green' classes={styles.button_flex} onClick={props.onSelect} />
                             <div className={css(styles.input_container)}>
                                 <input 
                                     className={css(styles.input_element)}
@@ -86,9 +86,10 @@ function Import_header(props) {
                                     onChange={(ev) => props.handleUrlImportChange(ev.target.value)}
                                     type="text" 
                                     onFocus={(ev) => ev.target.select()}
+                                    placeholder="输入URL（Enter URL）"
                                 />
                                 <BaseButton 
-                                    text='Import From Url' 
+                                    text='从URL导入（Import From Url）' 
                                     type='green' 
                                     disabled={!props.urlImportValue}
                                     classes={styles.button_input} 
@@ -98,7 +99,7 @@ function Import_header(props) {
                         </div>
                     }
 					{getHeaderType(props.state) === 'processing' && 
-                        <BaseButton text='Cancel Import' type='green' classes={styles.button_flex} onClick={props.onCancel} />
+                        <BaseButton text='取消导入（Cancel Import）' type='green' classes={styles.button_flex} onClick={props.onCancel} />
                     }
 				</div>
 				<div className={css(styles.separator)}></div>

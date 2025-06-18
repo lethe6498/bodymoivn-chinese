@@ -55,7 +55,7 @@ class ReportSettings extends React.Component {
           />
           <div className={css(styles.buttons_container)}>
               <BaseButton
-                text='Done'
+                text='完成（Done）'
                 type='green'
                 classes={styles.button}
                 onClick={this.props.onClose} />

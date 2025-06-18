@@ -88,7 +88,7 @@ class Compositions extends React.Component {
 
 	renderComps() {
 		if(!this.props.canRender){
-			this.props.showRenderBlock(['There are no Compositions to render.','Make sure you have at least one selected and a Destination Path set.'])
+			this.props.showRenderBlock(['没有可渲染的合成（There are no Compositions to render）','请确保至少选择了一个合成并设置了目标路径（Make sure you have at least one selected and a Destination Path set）'])
 		} else {
 			this.props.startRender()
 		}
@@ -101,7 +101,7 @@ class Compositions extends React.Component {
 				<div 
 					className={css(styles.toggleButton)} 
 					onClick={this.props.selectAllComps}>
-						{'Select All Comps'}
+						{'选择所有合成（Select All Comps）'}
 				</div>
 			)
 		} else {
@@ -109,7 +109,7 @@ class Compositions extends React.Component {
 				<div 
 					className={css(styles.toggleButton)} 
 					onClick={this.props.unselectAllComps}>
-						{'Unselect All Comps'}
+						{'取消选择所有合成（Unselect All Comps）'}
 				</div>
 			)
 		}
@@ -142,7 +142,7 @@ class Compositions extends React.Component {
 					<div 
 						className={css(styles.toggleButton)} 
 						onClick={this.props.toggleShowSelected}>
-							{this.props.showOnlySelected ? 'Show All' : 'Show Selected Compositions'}
+							{this.props.showOnlySelected ? '显示全部（Show All）' : '显示选中的合成（Show Selected Compositions）'}
 					</div>
 					{this.renderSelectAllButton()}
 				</div>

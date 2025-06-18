@@ -99,7 +99,7 @@ let RenderItem = (props) => {
                     <div
                         onClick={()=>props.preview(props.item)}
                         className={css(styles.compElementContentToggle)}
-                        title={'Preview'}
+                        title={'预览（Preview）'}
                     >
                     <img src={complete_icon}  className={css(styles.compElementContentFolder__image)} alt='toggle' />
                     </div>
@@ -107,7 +107,7 @@ let RenderItem = (props) => {
                         <div
                             onClick={()=>props.template(props.item)}
                             className={css(styles.compElementContentToggle)}
-                            title={'Blueprint report'}
+                            title={'蓝图报告（Blueprint report）'}
                         >
                         <img src={warning_icon}  className={css(styles.compElementContentFolder__image)} alt='toggle' />
                         </div>

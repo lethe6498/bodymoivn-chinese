@@ -249,64 +249,50 @@ class PreviewScrubber extends React.Component {
       <div className={css(styles.container)}>
         <Range updateProgress={this.onRangeUpdate} canScrub={this.props.totalFrames !== 0} progress={this.props.progress}/>
         <div className={css(styles.navContainer)}>
-          <div
-            className={css(styles.playButton)}
-            onClick={this.togglePlay}
-          >
+          <div className={css(styles.playButton)} onClick={this.togglePlay}>
             {this.renderPlayPauseButton()}
           </div>
-          <div onClick={this.focusNumber} className={css(styles.progressNumberContainer)}>
-            {!this.state.numberFocused 
-              && <div className={css(styles.progressNumber)}>{Math.round(this.props.totalFrames * this.props.progress)}</div>}
-            {this.state.numberFocused 
-              && <input 
-                    autoFocus={true}
+          <div className={css(styles.progressNumberContainer)} onClick={this.focusNumber}>
+            {this.state.numberFocused ? 
+              <input 
+                className={css(styles.inputNumber)} 
                     type="text" 
-                    className={css(styles.progressNumber, styles.inputNumber)} 
-                    size={inputLength} 
                     value={this.state.inputValue}
-                    onFocus={this.setInitialValue} 
+                onChange={this.updateValue} 
                     onBlur={this.handleBlur} 
                     onKeyDown={this.handleKey} 
-                    onChange={this.updateValue}/>}
-            <div className={css(styles.progressNumber)}>&nbsp;/ {Math.floor(this.props.totalFrames)}</div>
+                onFocus={this.setInitialValue}
+                style={{width: inputLength * 10 + 'px'}}
+              /> : 
+              <span className={css(styles.progressNumber)}>{Math.round(this.props.totalFrames * this.props.progress)}</span>
+            }
           </div>
           <div className={css(styles.emptySpace)}></div>
-          {this.props.canSaveFile &&
-            <BaseButton text='Take Snapshot' type='gray' classes={styles.button} onClick={this.props.saveFile} icon={snapshot}/>
-          }
-        </div>
-        <div className={css(styles.navContainer)}>
-          <div
-              className={css(styles.previewOption)}
+          <div className={css(styles.previewOption)}>
+            <BodymovinCheckbox
+              animationData={checkbox}
+              animate={this.props.shouldLockTimelineToComposition}
               onClick={this.props.toggleLockTimeline}
           >
-              <BodymovinCheckbox
-                  animationData={checkbox}
-                  animate={this.props.shouldLockTimelineToComposition}
-              >
-                  <div
-                      className={css(styles['previewOption-checkbox'])}
-                      
-                  />
+              <div className={css(styles['previewOption-checkbox'])} />
               </BodymovinCheckbox>
-              <span>Lock to Comp Timeline</span>
+            <span>锁定时间轴（Lock Timeline）</span>
           </div>
-          <div
-              className={css(styles.previewOption)}
-              onClick={this.props.toggleLoop}
-          >
+          <div className={css(styles.previewOption)}>
               <BodymovinCheckbox
                   animationData={checkbox}
                   animate={this.props.shouldLoop}
+              onClick={this.props.toggleLoop}
               >
-                  <div
-                      className={css(styles['previewOption-checkbox'])}
-                      
-                  />
+              <div className={css(styles['previewOption-checkbox'])} />
               </BodymovinCheckbox>
-              <span>Loop Animation</span>
+            <span>循环（Loop）</span>
           </div>
+          {this.props.canSaveFile && 
+            <div className={css(styles.button)}>
+              <BaseButton text='保存快照（Save Snapshot）' type='green' onClick={this.props.saveFile} />
+            </div>
+          }
         </div>
       </div>
       );

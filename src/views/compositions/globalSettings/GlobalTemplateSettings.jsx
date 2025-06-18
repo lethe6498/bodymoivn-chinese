@@ -66,9 +66,9 @@ class GlobalTemplateSettings extends React.Component {
     return (
       <div className={css(styles.wrapper)}>
         <div className={css(styles.header)}>
-          <div className={css(styles.headerTitle)}>Blueprints</div>
+          <div className={css(styles.headerTitle)}>蓝图（Blueprints）</div>
           <BaseButton
-              text='Add Blueprint'
+              text='添加蓝图（Add Blueprint）'
               type='gray'
               classes={styles.button}
               onClick={this.props.loadTemplate}
@@ -83,7 +83,7 @@ class GlobalTemplateSettings extends React.Component {
                   <div className={css(styles.templatesListItemContainer)} >
                     <div>{template.text}</div>
                     <BaseLink
-                        text='Delete'
+                        text='删除（Delete）'
                         type='green'
                         classes={styles.right}
                         onClick={() => this.props.onTemplateDelete(template.value)}

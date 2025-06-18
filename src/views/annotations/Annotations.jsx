@@ -73,7 +73,7 @@ class Annotations extends PureComponent {
       <div
          className={css(styles.emptyState)}
       >
-        <span>Select one or more layers from your composition to add annotations to them</span>
+        <span>从您的合成中选择一个或多个图层以添加注释（Select one or more layers from your composition to add annotations to them）</span>
       </div>
     )
   }
@@ -95,7 +95,7 @@ class Annotations extends PureComponent {
         </div>
         <div className={css(styles.content)} >
           <div className={css(styles.title)} >
-            Annotations
+            注释（Annotations）
           </div>
           <div className={css(styles.layersContainer)} >
           {this.buildContent(this.props.layers)}

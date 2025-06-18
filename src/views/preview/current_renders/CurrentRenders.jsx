@@ -54,7 +54,7 @@ function getItems(items, itemSelected) {
 let CurrentRenders = (props) => {
 	return (<div className={css(styles.container)}>
 				<div className={css(styles.nav)}>
-					<BaseButton text='Cancel' type='gray' onClick={props.cancelSelection} />
+					<BaseButton text='取消（Cancel）' type='gray' onClick={props.cancelSelection} />
 				</div>
 				<ul className={css(styles.list)}>
 					{getItems(props.items, props.itemSelected)}

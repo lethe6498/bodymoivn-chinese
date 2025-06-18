@@ -41,19 +41,19 @@ class SettingsMetadata extends React.PureComponent {
   render() {
     return (
     	<SettingsCollapsableItem 
-        title={'Metadata'}
-        description={'Export metadata data'}
+        title={'元数据（Metadata）'}
+        description={'导出元数据（Export metadata data）'}
         >
         <SettingsListItem 
-          title='Include project filename'
-          description='adds the .aep file name to the exported json file'
+          title='包含项目文件名（Include project filename）'
+          description='将 .aep 文件名添加到导出的 json 文件中（adds the .aep file name to the exported json file）'
           toggleItem={() => this.props.toggle(`${this.namespace}includeFileName`)}
           active={this.props.data ? this.props.data.includeFileName : false}  />
         <div className={css(styles.customProps)}>
-          <div className={css(styles.customPropsTitle)}>Custom Properties</div>
+          <div className={css(styles.customPropsTitle)}>自定义属性（Custom Properties）</div>
           {this.renderCustomProps(this.props.data.customProps)}
           <div className={css(styles.customPropsButton)}>
-            <BaseButton text='Add Custom Prop' type='green' onClick={this.props.addProp}></BaseButton>
+            <BaseButton text='添加自定义属性（Add Custom Prop）' type='green' onClick={this.props.addProp}></BaseButton>
           </div>
         </div>
         

@@ -61,9 +61,9 @@ class StorageAlerts extends React.Component {
     }
     return (<div>
       <div className={css(styles['deletable-title'])}>
-        <p className={css(styles['deletable-title-par'])}>Settings are stored in a limited storage location.</p>
-        <p className={css(styles['deletable-title-par'])}>In order to save new settings, some older settings have to be deleted.</p>
-        <p className={css(styles['deletable-title-par'])}>Select what setting to erase (This will not delete the project file, only the stored settings)</p>
+        <p className={css(styles['deletable-title-par'])}>设置存储在有限的存储位置中（Settings are stored in a limited storage location）</p>
+        <p className={css(styles['deletable-title-par'])}>为了保存新设置，需要删除一些旧设置（In order to save new settings, some older settings have to be deleted）</p>
+        <p className={css(styles['deletable-title-par'])}>选择要删除的设置（这将不会删除项目文件，只会删除存储的设置）（Select what setting to erase (This will not delete the project file, only the stored settings)）</p>
       </div>
       <ul>
         {projects.map(project => {
@@ -91,13 +91,13 @@ class StorageAlerts extends React.Component {
     const buttons = []
     if (!data.projects.length || this.state.selected.length) {
       buttons.push({
-        text: 'Confirm',
+        text: '确认（Confirm）',
         action: () => this.props.clearProjectsFromCache(this.state.selected),
         type: 'green',
       })
     }
     buttons.push({
-      text: 'Cancel',
+      text: '取消（Cancel）',
       action: this.props.clearCacheCancelled,
       type: 'gray',
     })
@@ -110,7 +110,7 @@ class StorageAlerts extends React.Component {
     <BaseAlert
       buttons={this.buildButtons(data)}
       pars={[
-        'Your local storage is full.',
+        '您的本地存储已满（Your local storage is full）',
       ]}
     >
       {this.buildContent(data)}
