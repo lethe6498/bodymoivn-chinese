@@ -33,7 +33,7 @@ class SettingsAssets extends React.PureComponent {
         !isUsingOriginalAssets &&  
         <SettingsListItem 
           title='启用压缩（Enable compression）'
-          description='设置图像图层的压缩比率（0-100）（Set compression ratio for image layers (0-100)）'
+          description='使用Tinify.cn智能压缩图像，无损压缩质量更高（Use Tinify.cn smart compression for better quality）'
           toggleItem={this.props.toggleCompressImages}
           needsInput={true} 
           inputValue={this.props.settings ? this.props.settings.compression_rate : 0} 

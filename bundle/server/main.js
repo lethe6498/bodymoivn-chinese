@@ -17,7 +17,125 @@ var ltf = new LottieToFlare();
 
 var JSZip = require('jszip');
 
+// Tinify压缩配置
+const TINIFY_CN_URL = 'https://tinify.cn/shrink';
+const TINIFY_API_URL = 'https://api.tinify.com/shrink';
+
+// Tinify服务状态缓存
+let tinifyAvailable = null;
+let lastTinifyCheck = 0;
+const TINIFY_CHECK_INTERVAL = 300000; // 5分钟
+
 let localStoredId = ''
+
+/**
+ * 检查Tinify服务是否可用
+ */
+async function checkTinifyService() {
+    try {
+        // 创建1x1像素PNG测试图片
+        const testPNG = Buffer.from([
+            0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0x00, 0x00, 0x00, 0x0D,
+            0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01,
+            0x08, 0x02, 0x00, 0x00, 0x00, 0x90, 0x77, 0x53, 0xDE, 0x00, 0x00, 0x00,
+            0x0C, 0x49, 0x44, 0x41, 0x54, 0x08, 0x99, 0x01, 0x01, 0x00, 0x00, 0x00,
+            0xFF, 0xFF, 0x00, 0x00, 0x00, 0x02, 0x00, 0x01, 0xE2, 0x21, 0xBC, 0x33,
+            0x00, 0x00, 0x00, 0x00, 0x49, 0x45, 0x4E, 0x44, 0xAE, 0x42, 0x60, 0x82
+        ]);
+
+        const fetch = require('node-fetch');
+        
+        // 先测试tinify.cn
+        try {
+            const response = await fetch(TINIFY_CN_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/octet-stream',
+                    'User-Agent': 'Bodymovin Extension Server'
+                },
+                body: testPNG
+            });
+            
+            if (response.ok) {
+                console.log('Tinify.cn 服务可用');
+                return true;
+            }
+        } catch (error) {
+            console.log('Tinify.cn不可用，测试官方API');
+        }
+
+        // 测试官方API
+        const response = await fetch(TINIFY_API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/octet-stream',
+                'User-Agent': 'Bodymovin Extension Server'
+            },
+            body: testPNG
+        });
+
+        const available = response.ok;
+        console.log(`Tinify官方API ${available ? '可用' : '不可用'}`);
+        return available;
+
+    } catch (error) {
+        console.error('Tinify服务检查失败:', error.message);
+        return false;
+    }
+}
+
+/**
+ * 使用Tinify压缩图片
+ */
+async function compressWithTinify(imagePath) {
+    try {
+        const imageData = fs.readFileSync(imagePath);
+        const fetch = require('node-fetch');
+        
+        // 先尝试tinify.cn
+        let response;
+        try {
+            response = await fetch(TINIFY_CN_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/octet-stream',
+                    'User-Agent': 'Bodymovin Extension Server'
+                },
+                body: imageData
+            });
+        } catch (error) {
+            console.log('Tinify.cn失败，尝试官方API');
+            response = await fetch(TINIFY_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/octet-stream',
+                    'User-Agent': 'Bodymovin Extension Server'
+                },
+                body: imageData
+            });
+        }
+
+        if (!response.ok) {
+            throw new Error(`Tinify API错误: ${response.status}`);
+        }
+
+        const compressedData = await response.buffer();
+        
+        // 保存压缩后的图片
+        fs.writeFileSync(imagePath, compressedData);
+        
+        const originalSize = imageData.length;
+        const compressedSize = compressedData.length;
+        const compressionRatio = ((originalSize - compressedSize) / originalSize * 100).toFixed(1);
+        
+        console.log(`Tinify压缩: ${(originalSize / 1024).toFixed(1)}KB -> ${(compressedSize / 1024).toFixed(1)}KB (${compressionRatio}%)`);
+        
+        return true;
+    } catch (error) {
+        console.error('Tinify压缩失败:', error.message);
+        return false;
+    }
+}
 
 async function processImage(path, compression, hasTransparency) {
 	//C:\\Program Files\\Adobe\\Adobe After Effects 2020\\Support Files
@@ -36,6 +154,31 @@ async function processImage(path, compression, hasTransparency) {
 		}))*/
 		plugins.push(pngToJpeg({quality: Math.round(compression * 100)}))
 	}
+	// 检查Tinify服务状态（带缓存）
+	const now = Date.now();
+	if (tinifyAvailable === null || (now - lastTinifyCheck) > TINIFY_CHECK_INTERVAL) {
+		console.log('检查Tinify服务状态...');
+		tinifyAvailable = await checkTinifyService();
+		lastTinifyCheck = now;
+	}
+
+	// 优先尝试使用Tinify压缩
+	if (tinifyAvailable) {
+		console.log('使用Tinify进行图片压缩...');
+		const tinifySuccess = await compressWithTinify(path);
+		if (tinifySuccess) {
+			// Tinify成功，返回处理结果
+			return [{
+				destinationPath: path,
+				path: path
+			}];
+		} else {
+			console.log('Tinify压缩失败，回退到本地压缩');
+		}
+	}
+
+	// 回退到原有的本地压缩方法
+	console.log('使用本地imagemin进行图片压缩...');
 	const files = await imagemin([path], {
 	// const files = await imagemin(['./images/hernan.jpg'], {
 			destination: destinationFullPath,
